@@ -84,3 +84,19 @@ print('\r')
 
 
 
+from vehicle_objects import Vehicle, ElectricVehicle
+a_mini = Vehicle('Cooper','Mini','Car')
+a_mini.fuel_up()
+a_mini.drive()
+a_tesla = ElectricVehicle('Telsa','ModelX','Electric')
+a_tesla.charge()
+a_tesla.drive()
+
+import vehicle
+a_mini = Vehicle('Cooper', 'Mini', 'Car')
+a_mini.fuel_up()
+a_mini.drive()
+a_tesla = ElectricVehicle('Tesla', 'Model X', 'Electric')
+a_tesla.charge()
+a_tesla.drive()
+
