@@ -92,7 +92,7 @@ a_tesla = ElectricVehicle('Telsa','ModelX','Electric')
 a_tesla.charge()
 a_tesla.drive()
 
-import vehicle
+#import vehicle
 a_mini = Vehicle('Cooper', 'Mini', 'Car')
 a_mini.fuel_up()
 a_mini.drive()
@@ -100,3 +100,77 @@ a_tesla = ElectricVehicle('Tesla', 'Model X', 'Electric')
 a_tesla.charge()
 a_tesla.drive()
 
+from abc import ABC, abstractmethod
+class Vehicle(ABC):
+    @abstractmethod
+    def drive(self):
+        pass
+class ElectricVehicle(Vehicle):
+    def drive(self):
+        print("Driving Electric Vehicle")
+class PetrolVehicle(Vehicle):
+    def drive(self):
+        print("Driving Petrol Vehicle")
+#------------------------------------------
+electric_vehicle= ElectricVehicle()
+electric_vehicle.drive()
+petrol_vehicle = PetrolVehicle()
+petrol_vehicle.drive()
+
+
+import logging
+
+logging.debug('This is a debug message')
+logging.info('This is an info message')
+logging.warning('This is a warning message')
+logging.error('This is an error message')
+logging.critical('This is a critical message')
+
+
+import logging
+# logger = logging.getLogger(__name__)
+# logger.setLevel('DEBUG')
+logging.basicConfig(level=logging.DEBUG)
+logging.debug('This will get logged')
+
+
+def myfun(**kwargs):
+    for key, value in kwargs.items():
+        print("%s == %s" % (key, value))
+
+
+myfun(first='python', second ='Java', third='C++')
+
+
+#def myfun(*args):
+#   for value in args.__add__():
+#       print("%s " %  (value))
+
+
+#myfun[1,2,3]
+#logger = logging.getLogger(__name__)
+#logger.setLevel('info')
+logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO)
+logging.info("Admin logged in")
+
+
+import logging
+logging.basicConfig(format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')
+logging.warning('Admin logged out')
+
+import logging
+name = 'John'
+logging.error('%s raised an error', name)
+
+import logging
+name = 'John'
+logging.error(f'{name} raised an error')
+
+
+import logging
+a = 5
+b = 0
+try:
+    c = a / b
+except Exception as e:
+    logging.error("Exception occurred", exc_info=True)
